@@ -1,0 +1,810 @@
+/* =========================================================
+   FOCUS SESSIONS
+========================================================= */
+
+.focus-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+
+  background: #f1f5f9;
+
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.focus-sidebar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 250px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 14px;
+
+  background: #0f1b2d;
+
+  color: white;
+
+  z-index: 1000;
+}
+
+.focus-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 8px 8px 30px;
+}
+
+.focus-brand-logo {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #1e3a5f;
+
+  font-size: 23px;
+}
+
+.focus-brand h2 {
+  color: #38bdf8;
+
+  font-size: 22px;
+
+  line-height: 1.05;
+}
+
+.focus-brand span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+.focus-menu-section {
+  margin-bottom: 18px;
+}
+
+.focus-menu-section p {
+  margin: 0 0 9px 9px;
+
+  color: #64748b;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.focus-menu-section button {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 14px;
+
+  margin-bottom: 5px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #cbd5e1;
+
+  font-size: 14px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.focus-menu-section button:hover {
+  background: #172942;
+
+  color: white;
+}
+
+.focus-menu-section button.active {
+  background: #294a7a;
+
+  color: white;
+
+  border-left: 3px solid #22d3ee;
+
+  padding-left: 11px;
+}
+
+.focus-logout {
+  width: 100%;
+
+  margin-top: auto;
+
+  padding: 12px;
+
+  border: 1px solid #29415f;
+
+  border-radius: 10px;
+
+  background: #16263d;
+
+  color: white;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.focus-logout:hover {
+  background: #203754;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.focus-main {
+  width: calc(100% - 250px);
+
+  min-height: 100vh;
+
+  margin-left: 250px;
+
+  padding: 32px 36px 50px;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.focus-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  margin-bottom: 24px;
+}
+
+.focus-eyebrow {
+  margin-bottom: 7px;
+
+  color: #2563eb;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.7px;
+}
+
+.focus-header h1 {
+  margin: 0;
+
+  font-size: 30px;
+
+  line-height: 1.2;
+}
+
+.focus-header p:last-child {
+  margin-top: 7px;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+.focus-header-date {
+  padding: 9px 14px;
+
+  border: 1px solid #dbe3ec;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   TIMER PANEL
+========================================================= */
+
+.focus-timer-panel {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    250px;
+
+  gap: 25px;
+
+  padding: 28px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.05);
+
+  margin-bottom: 20px;
+}
+
+.timer-content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 10px;
+}
+
+.timer-label {
+  color: #2563eb;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.timer-circle {
+  width: 230px;
+  height: 230px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 18px 0;
+
+  border: 10px solid #dbeafe;
+
+  border-top-color: #2563eb;
+
+  border-right-color: #38bdf8;
+
+  border-radius: 50%;
+}
+
+.timer-circle div {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.timer-circle strong {
+  color: #0f2747;
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.timer-circle span {
+  margin-top: 5px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+.duration-options {
+  text-align: center;
+}
+
+.duration-options > span {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+.duration-options div {
+  display: flex;
+
+  gap: 7px;
+}
+
+.duration-options button {
+  padding: 8px 15px;
+
+  border: 1px solid #dbe3ec;
+
+  border-radius: 8px;
+
+  background: #f8fafc;
+
+  color: #475569;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.duration-options button.selected {
+  border-color: #2563eb;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-weight: 700;
+}
+
+.start-session-btn,
+.end-session-btn {
+  margin-top: 18px;
+
+  min-width: 200px;
+
+  padding: 12px 22px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.start-session-btn {
+  background: #2563eb;
+}
+
+.start-session-btn:hover {
+  background: #1d4ed8;
+}
+
+.end-session-btn {
+  background: #ef4444;
+}
+
+.end-session-btn:hover {
+  background: #dc2626;
+}
+
+
+/* =========================================================
+   TIMER INFORMATION
+========================================================= */
+
+.timer-info {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 16px;
+
+  padding-left: 25px;
+
+  border-left: 1px solid #e2e8f0;
+}
+
+.timer-info div {
+  padding: 15px;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+}
+
+.timer-info span {
+  display: block;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.timer-info strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #1e293b;
+
+  font-size: 13px;
+}
+
+.status-active {
+  color: #10b981 !important;
+}
+
+.status-ready {
+  color: #2563eb !important;
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.session-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.session-stat {
+  padding: 20px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.session-stat span {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+.session-stat strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #0f172a;
+
+  font-size: 25px;
+}
+
+.session-stat small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.session-history {
+  padding: 25px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.05);
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header p {
+  margin-bottom: 5px;
+
+  color: #2563eb;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+}
+
+.section-header h2 {
+  font-size: 21px;
+}
+
+.section-header span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+
+/* TABLE */
+
+.session-table {
+  width: 100%;
+}
+
+.session-table-head,
+.session-row {
+  display: grid;
+
+  grid-template-columns:
+    1.4fr
+    1fr
+    1fr
+    1fr
+    1fr;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.session-table-head {
+  padding: 13px 15px;
+
+  border-radius: 8px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.session-row {
+  padding: 15px;
+
+  border-bottom: 1px solid #edf2f7;
+
+  color: #475569;
+
+  font-size: 11px;
+}
+
+.session-row:last-child {
+  border-bottom: none;
+}
+
+.session-row span {
+  min-width: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.session-row b {
+  display: inline-block;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+}
+
+.session-row b.completed {
+  background: #dcfce7;
+
+  color: #16a34a;
+}
+
+.session-row b.in-progress {
+  background: #dbeafe;
+
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-sessions {
+  padding: 45px 20px;
+
+  border: 1px dashed #cbd5e1;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  text-align: center;
+}
+
+.empty-sessions div {
+  font-size: 30px;
+
+  margin-bottom: 10px;
+}
+
+.empty-sessions h3 {
+  color: #334155;
+
+  font-size: 15px;
+}
+
+.empty-sessions p {
+  margin-top: 6px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.focus-footer {
+  padding-top: 25px;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .focus-sidebar {
+    width: 215px;
+  }
+
+  .focus-main {
+    width: calc(100% - 215px);
+
+    margin-left: 215px;
+
+    padding: 25px 20px;
+  }
+
+  .focus-timer-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .timer-info {
+    padding-left: 0;
+
+    border-left: none;
+
+    border-top: 1px solid #e2e8f0;
+
+    padding-top: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .session-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .focus-sidebar {
+    position: relative;
+
+    width: 100%;
+
+    height: auto;
+  }
+
+  .focus-page {
+    display: block;
+  }
+
+  .focus-main {
+    width: 100%;
+
+    margin-left: 0;
+
+    padding: 20px 12px;
+  }
+
+  .focus-header {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .timer-info {
+    grid-template-columns: 1fr;
+  }
+
+  .session-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .session-table {
+    overflow-x: auto;
+  }
+
+  .session-table-head,
+  .session-row {
+    min-width: 650px;
+  }
+
+}
