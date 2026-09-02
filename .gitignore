@@ -20,3 +20,6 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+# Local ZIP / backup folders
+*.zip
+FocusGuard-AI--Human-Attention-Preservation---Digital-Distraction-Intelligence-Platform-July-2026/
