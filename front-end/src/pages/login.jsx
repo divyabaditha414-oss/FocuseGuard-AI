@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import API from "../api";
-import "./Login.css";
+import "./login.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Login() {

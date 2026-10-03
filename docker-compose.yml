@@ -1,0 +1,28 @@
+services:
+
+  backend:
+    build:
+      context: ./back-end
+
+    container_name: focusguard-backend
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      DATABASE_URL: postgresql://postgres:14082005@host.docker.internal:5432/focusguard-db
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    build:
+      context: ./front-end
+
+    container_name: focusguard-frontend
+
+    ports:
+      - "5173:80"
+
+    depends_on:
+      - backend
