@@ -32,9 +32,21 @@ function Login() {
     } else {
       alert(res.data.message);
     }
-  } catch (err) {
-    alert("Login Failed");
+ } catch (err) {
+  console.error("Login Error:", err);
+
+  if (err.response) {
+    console.error("Status:", err.response.status);
+    console.error("Data:", err.response.data);
+    alert(
+      err.response.data?.detail ||
+      err.response.data?.message ||
+      "Login Failed"
+    );
+  } else {
+    alert("Unable to connect to the backend. Check CORS or backend URL.");
   }
+}
 };
 
 return (
