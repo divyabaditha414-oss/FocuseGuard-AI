@@ -38,11 +38,12 @@ class FocusSessionStart(BaseModel):
 # Create tables if they don't exist
 Base.metadata.create_all(bind=engine)
 # CORS
+# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "focuse-guard-ai.vercel.app",
+        "https://focuse-guard-ai.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
