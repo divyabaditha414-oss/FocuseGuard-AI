@@ -4,6 +4,6 @@ sqlalchemy
 psycopg2-binary
 pandas
 joblib
-scikit-learn
+scikit-learn==1.9.0
 pydantic
 python-multipart
