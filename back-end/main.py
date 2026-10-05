@@ -51,6 +51,22 @@ def get_analytics_user_id(user_id: int, db) -> int:
     return user_id if has_data else DEMO_USER_ID
 
 
+def get_session_user_id(user_id: int, db) -> int:
+    """
+    Return user_id if that user has any FocusSession rows,
+    otherwise fall back to DEMO_USER_ID so new users see demo
+    session history instead of an empty list.
+    The /active and /start /end endpoints are NOT affected —
+    those always operate on the real user_id.
+    """
+    has_sessions = (
+        db.query(FocusSession.id)
+        .filter(FocusSession.user_id == user_id)
+        .first()
+    )
+    return user_id if has_sessions else DEMO_USER_ID
+
+
 from sqlalchemy import func
 from datetime import date
 from models import (
@@ -739,6 +755,14 @@ def get_focus_sessions(
 
     try:
 
+        # --------------------------------------------------
+        # Resolve demo fallback: if this user has no real
+        # FocusSession rows, serve user_id=1's demo sessions.
+        # The /active, /start and /end endpoints are not
+        # affected — they always use the real user_id.
+        # --------------------------------------------------
+        session_uid = get_session_user_id(user_id, db)
+
         now = datetime.utcnow()
 
         if period == "today":
@@ -764,7 +788,7 @@ def get_focus_sessions(
         sessions = (
             db.query(FocusSession)
             .filter(
-                FocusSession.user_id == user_id,
+                FocusSession.user_id == session_uid,
                 FocusSession.start_time >= start_date
             )
             .order_by(
@@ -1616,10 +1640,14 @@ def get_analytics(
         # 13. FOCUS SESSION ANALYSIS
         # ====================================================
 
+        # Use session fallback so new users see demo sessions
+        # in the analytics summary (same pattern as AppUsageLog)
+        analytics_session_uid = get_session_user_id(user_id, db)
+
         focus_sessions = (
             db.query(FocusSession)
             .filter(
-                FocusSession.user_id == user_id,
+                FocusSession.user_id == analytics_session_uid,
                 FocusSession.start_time >= start_date,
                 FocusSession.start_time <= end_date
             )
