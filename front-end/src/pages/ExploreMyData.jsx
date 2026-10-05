@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./ExploreMyData.css";
 
-const API_URL = "http://https://focuse-guard-ai-q44i.vercel.app";
+const API_URL = "https://focus-guard-ai-q44i.vercel.app";
 
 
 function ExploreMyData() {
