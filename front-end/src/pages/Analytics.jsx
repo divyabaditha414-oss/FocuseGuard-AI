@@ -71,7 +71,7 @@ function Analytics() {
       // -----------------------------------------------
 
       const analyticsResponse = await fetch(
-        `https://focus-guard-ai-q44i.vercel.app/analytics/${userId}?period=${period}`
+        `https://focuse-guard-ai-q44i.vercel.app/analytics/${userId}?period=${period}`
       );
 
       if (!analyticsResponse.ok) {
@@ -158,7 +158,7 @@ function Analytics() {
 
       try {
         const activityResponse = await fetch(
-          `https://focus-guard-ai-q44i.vercel.app/activity-monitor/${userId}?period=${period}`
+          `https://focuse-guard-ai-q44i.vercel.app/activity-monitor/${userId}?period=${period}`
         );
 
         if (activityResponse.ok) {
@@ -246,7 +246,7 @@ function Analytics() {
         try {
           const distractionResponse =
             await fetch(
-              `https://focus-guard-ai-q44i.vercel.app/distraction-count/${userId}?period=${period}`
+              `https://focuse-guard-ai-q44i.vercel.app/distraction-count/${userId}?period=${period}`
             );
 
           if (distractionResponse.ok) {
@@ -278,7 +278,7 @@ function Analytics() {
         try {
           const switchResponse =
             await fetch(
-              `https://focus-guard-ai-q44i.vercel.app/task-switches/${userId}?period=${period}`
+              `https://focuse-guard-ai-q44i.vercel.app/task-switches/${userId}?period=${period}`
             );
 
           if (switchResponse.ok) {

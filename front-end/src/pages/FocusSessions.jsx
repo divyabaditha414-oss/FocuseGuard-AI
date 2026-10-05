@@ -56,7 +56,7 @@ function FocusSessions() {
     try {
 
       const response = await fetch(
-        `https://focus-guard-ai-q44i.vercel.app/focus-sessions/${userId}?period=week`
+        `https://focuse-guard-ai-q44i.vercel.app/focus-sessions/${userId}?period=week`
       );
 
       if (!response.ok) {
@@ -95,7 +95,7 @@ function FocusSessions() {
     try {
 
       const response = await fetch(
-        `https://focus-guard-ai-q44i.vercel.app/focus-sessions/${userId}/active`
+        `https://focuse-guard-ai-q44i.vercel.app/focus-sessions/${userId}/active`
       );
 
       if (!response.ok) {
@@ -381,7 +381,7 @@ function FocusSessions() {
 
       const response =
         await fetch(
-          "https://focus-guard-ai-q44i.vercel.app/focus-sessions/start",
+          "https://focuse-guard-ai-q44i.vercel.app/focus-sessions/start",
           {
             method: "POST",
 
@@ -526,7 +526,7 @@ function FocusSessions() {
 
       const response =
         await fetch(
-          `https://focus-guard-ai-q44i.vercel.app/focus-sessions/${activeSession.session_id}/end`,
+          `https://focuse-guard-ai-q44i.vercel.app/focus-sessions/${activeSession.session_id}/end`,
           {
             method: "POST",
           }

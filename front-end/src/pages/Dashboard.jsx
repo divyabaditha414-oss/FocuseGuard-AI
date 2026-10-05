@@ -8,7 +8,7 @@ import {
   markNotificationsRead,
 } from "../utils/notificationSettings";
 
-const API_URL = "https://focus-guard-ai-q44i.vercel.app";
+const API_URL = "https://focuse-guard-ai-q44i.vercel.app";
 
 function Dashboard() {
   const navigate = useNavigate();

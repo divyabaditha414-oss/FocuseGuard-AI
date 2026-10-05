@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AIRecommendations.css";
 
-const API_BASE = "https://focus-guard-ai-q44i.vercel.app";
+const API_BASE = "https://focuse-guard-ai-q44i.vercel.app";
 
 /* =========================================================
    SIDEBAR
