@@ -24,6 +24,33 @@ def get_db():
         db.close()
 from models import Base, User, AppUsageLog, FocusSession
 app = FastAPI()
+
+# -----------------------------------------------------------------------
+# DEMO DATA HELPER
+# -----------------------------------------------------------------------
+# The mock dataset was generated only for user_ids 1, 2, and 3.
+# Any user who logs in but has no AppUsageLog rows will receive the same
+# demo analytics as user_id 1 (the primary demo dataset).
+# Profile / account data always stays per-user — only analytics fall back.
+# -----------------------------------------------------------------------
+
+DEMO_USER_ID = 1  # primary demo dataset
+
+
+def get_analytics_user_id(user_id: int, db) -> int:
+    """
+    Return user_id if that user has app-usage data in the database,
+    otherwise fall back to DEMO_USER_ID so every logged-in user sees
+    the same demo analytics.
+    """
+    has_data = (
+        db.query(AppUsageLog.id)
+        .filter(AppUsageLog.user_id == user_id)
+        .first()
+    )
+    return user_id if has_data else DEMO_USER_ID
+
+
 from sqlalchemy import func
 from datetime import date
 from models import (
@@ -260,10 +287,11 @@ def get_focus_score(user_id: int ,  period: str = "today"):
 
     db = SessionLocal()
     start_date, end_date = get_date_range(period)
+    analytics_uid = get_analytics_user_id(user_id, db)
 
     try:
        query = db.query(AppUsageLog).filter(
-    AppUsageLog.user_id == user_id
+    AppUsageLog.user_id == analytics_uid
 )
 
        if start_date and end_date:
@@ -317,9 +345,10 @@ def get_screen_time(user_id: int, period: str = "today"):
 
     try:
         start_date, end_date = get_date_range(period)
+        analytics_uid = get_analytics_user_id(user_id, db)
 
         query = db.query(AppUsageLog).filter(
-            AppUsageLog.user_id == user_id
+            AppUsageLog.user_id == analytics_uid
         )
 
         if start_date and end_date:
@@ -359,9 +388,10 @@ def get_distraction_analysis(user_id: int, period: str = "today"):
 
     try:
         start_date, end_date = get_date_range(period)
+        analytics_uid = get_analytics_user_id(user_id, db)
 
         query = db.query(AppUsageLog).filter(
-            AppUsageLog.user_id == user_id
+            AppUsageLog.user_id == analytics_uid
         )
 
         if start_date and end_date:
@@ -421,11 +451,12 @@ def get_task_switches(
         # --------------------------------
 
         start_date, end_date = get_date_range(period)
+        analytics_uid = get_analytics_user_id(user_id, db)
 
         query = (
             db.query(AppUsageLog)
             .filter(
-                AppUsageLog.user_id == user_id
+                AppUsageLog.user_id == analytics_uid
             )
         )
 
@@ -572,9 +603,10 @@ def period_test(user_id: int, period: str = "today"):
 
     try:
         start_date, end_date = get_date_range(period)
+        analytics_uid = get_analytics_user_id(user_id, db)
 
         query = db.query(AppUsageLog).filter(
-            AppUsageLog.user_id == user_id
+            AppUsageLog.user_id == analytics_uid
         )
 
         if start_date and end_date:
@@ -818,10 +850,12 @@ def get_activity_monitor(
         # 2. FIND LATEST AVAILABLE APP DATA
         # ==========================================
 
+        analytics_uid = get_analytics_user_id(user_id, db)
+
         latest_record = (
             db.query(AppUsageLog)
             .filter(
-                AppUsageLog.user_id == user_id
+                AppUsageLog.user_id == analytics_uid
             )
             .order_by(
                 AppUsageLog.created_at.desc()
@@ -913,7 +947,7 @@ def get_activity_monitor(
         logs = (
             db.query(AppUsageLog)
             .filter(
-                AppUsageLog.user_id == user_id,
+                AppUsageLog.user_id == analytics_uid,
                 AppUsageLog.created_at >= start_date,
                 AppUsageLog.created_at < end_date
             )
@@ -1062,11 +1096,14 @@ def distraction_count(
     try:
         # -------------------------------------------------
         # FIND LATEST DATE AVAILABLE FOR THIS USER
+        # (fall back to demo dataset if user has no data)
         # -------------------------------------------------
+        analytics_uid = get_analytics_user_id(user_id, db)
+
         latest_record = (
             db.query(AppUsageLog)
             .filter(
-                AppUsageLog.user_id == user_id
+                AppUsageLog.user_id == analytics_uid
             )
             .order_by(
                 AppUsageLog.created_at.desc()
@@ -1166,7 +1203,7 @@ def distraction_count(
         distractions = (
             db.query(AppUsageLog)
             .filter(
-                AppUsageLog.user_id == user_id,
+                AppUsageLog.user_id == analytics_uid,
                 AppUsageLog.created_at >= start_date,
                 AppUsageLog.created_at <= end_date,
                 AppUsageLog.productivity.ilike("%non%")
@@ -1303,13 +1340,21 @@ def get_analytics(
     try:
 
         # ====================================================
-        # 1. FIND LATEST DATE AVAILABLE IN DATABASE
+        # 1. RESOLVE DEMO FALLBACK
+        #    If the requesting user has no usage data, serve
+        #    user_id=1's demo dataset instead.
+        # ====================================================
+
+        analytics_uid = get_analytics_user_id(user_id, db)
+
+        # ====================================================
+        # 2. FIND LATEST DATE AVAILABLE IN DATABASE
         # ====================================================
 
         latest_record = (
             db.query(AppUsageLog.created_at)
             .filter(
-                AppUsageLog.user_id == user_id
+                AppUsageLog.user_id == analytics_uid
             )
             .order_by(
                 AppUsageLog.created_at.desc()
@@ -1402,7 +1447,7 @@ def get_analytics(
         records = (
             db.query(AppUsageLog)
             .filter(
-                AppUsageLog.user_id == user_id,
+                AppUsageLog.user_id == analytics_uid,
                 AppUsageLog.created_at >= start_date,
                 AppUsageLog.created_at <= end_date
             )
@@ -1655,7 +1700,7 @@ def get_analytics(
                 day_records = (
                     db.query(AppUsageLog)
                     .filter(
-                        AppUsageLog.user_id == user_id,
+                        AppUsageLog.user_id == analytics_uid,
                         AppUsageLog.created_at >= day_start,
                         AppUsageLog.created_at <= day_end
                     )
@@ -2038,9 +2083,11 @@ def explore_my_data(
     db = SessionLocal()
 
     try:
+        analytics_uid = get_analytics_user_id(user_id, db)
+
         query = (
             db.query(AppUsageLog)
-            .filter(AppUsageLog.user_id == user_id)
+            .filter(AppUsageLog.user_id == analytics_uid)
         )
 
         # -----------------------------------------

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
-const API_BASE = "http://https://focuse-guard-ai-q44i.vercel.app";
+const API_BASE = "https://focuse-guard-ai-q44i.vercel.app";
 
 function Profile() {
   const navigate = useNavigate();
