@@ -41,7 +41,7 @@ function DistractionAnalysis() {
       setError("");
 
       const response = await fetch(
-        `http://127.0.0.1:8000/distraction-count/${userId}?period=${period}`
+        `http://https://focuse-guard-ai-q44i.vercel.app/distraction-count/${userId}?period=${period}`
       );
 
       if (!response.ok) {
@@ -84,7 +84,7 @@ if (result.error) {
       setSwitchLoading(true);
 
       const response = await axios.get(
-        `http://127.0.0.1:8000/task-switches/${userId}?period=${period}`
+        `http://https://focuse-guard-ai-q44i.vercel.app/task-switches/${userId}?period=${period}`
       );
 
       if (response.data.error) {

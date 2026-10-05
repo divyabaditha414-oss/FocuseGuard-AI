@@ -27,7 +27,7 @@ function ActivityMonitor() {
       }
 
       const response = await fetch(
-        `http://127.0.0.1:8000/activity-monitor/${userId}?period=${period}`
+        `http://https://focuse-guard-ai-q44i.vercel.app/activity-monitor/${userId}?period=${period}`
       );
 
       if (!response.ok) {
