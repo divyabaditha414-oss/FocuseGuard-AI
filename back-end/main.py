@@ -763,7 +763,30 @@ def get_focus_sessions(
         # --------------------------------------------------
         session_uid = get_session_user_id(user_id, db)
 
-        now = datetime.utcnow()
+        # --------------------------------------------------
+        # DATE ANCHOR
+        # When serving the demo dataset (session_uid != user_id)
+        # we must anchor to the demo data's reference date
+        # (2026-06-30) rather than utcnow(), otherwise the
+        # date window never overlaps the mock records and the
+        # list comes back empty.
+        # --------------------------------------------------
+        if session_uid != user_id:
+            # Demo fallback — find the latest session date for
+            # the demo user and use that as the reference point.
+            latest_demo = (
+                db.query(FocusSession)
+                .filter(FocusSession.user_id == session_uid)
+                .order_by(FocusSession.start_time.desc())
+                .first()
+            )
+            if latest_demo and latest_demo.start_time:
+                now = latest_demo.start_time
+            else:
+                # Absolute fallback: use the known mock-data date
+                now = datetime(2026, 6, 30, 23, 59, 59)
+        else:
+            now = datetime.utcnow()
 
         if period == "today":
             start_date = datetime(
