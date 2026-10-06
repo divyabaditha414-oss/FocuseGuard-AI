@@ -241,7 +241,7 @@ def get_app_usage():
 
 def get_date_range(period: str):
     # Latest mock-data date
-    reference_date = datetime(2026, 6, 30)
+    reference_date = datetime(2026, 8, 29)
 
     if period == "today":
         start_date = reference_date.replace(
