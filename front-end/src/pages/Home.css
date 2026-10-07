@@ -8,7 +8,7 @@
 .fg-home {
   width: 100%;
   min-height: 100vh;
-  background: #07101f;
+  background: #bcc1c9;
   color: #e2e8f0;
   font-family: Inter, Poppins, Arial, sans-serif;
   overflow-x: hidden;
@@ -1485,5 +1485,478 @@
   .fg-btn-secondary {
     justify-content: center;
     width: 100%;
+  }
+}
+/* ============================================================
+   FOCUSGUARD AI — LIGHT THEME
+   Matches Login & Dashboard
+   ============================================================ */
+
+/* ---------- MAIN PAGE ---------- */
+
+.fg-home {
+  background: #F8FAFC;
+  color: #0F172A;
+}
+
+
+/* ---------- NAVBAR ---------- */
+
+.fg-nav {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+}
+
+.fg-nav-brand-name {
+  color: #0F172A;
+}
+
+.fg-nav-brand-sub {
+  color: #64748B;
+}
+
+.fg-nav-links li button {
+  color: #475569;
+}
+
+.fg-nav-links li button:hover {
+  color: #2563EB;
+  background: #EFF6FF;
+}
+
+.fg-nav-signin {
+  color: #475569;
+  border-color: #CBD5E1;
+}
+
+.fg-nav-signin:hover {
+  color: #2563EB;
+  border-color: #93C5FD;
+  background: #EFF6FF;
+}
+
+.fg-nav-hamburger span {
+  background: #475569;
+}
+
+
+/* ---------- MOBILE NAV ---------- */
+
+.fg-nav-mobile {
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.fg-nav-mobile button {
+  color: #475569;
+}
+
+.fg-nav-mobile button:hover {
+  color: #2563EB;
+  background: #EFF6FF;
+}
+
+.fg-nav-mobile-divider {
+  background: #E2E8F0;
+}
+
+.fg-nav-mobile-signin {
+  border-color: #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+
+/* ---------- HERO ---------- */
+
+.fg-hero {
+  background: #F8FAFC;
+}
+
+.fg-hero-heading {
+  color: #0F172A;
+}
+
+.fg-hero-heading span {
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fg-hero-sub {
+  color: #64748B;
+}
+
+.fg-hero-badge {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+  color: #2563EB;
+}
+
+.fg-highlight {
+  color: #64748B;
+}
+
+
+/* ---------- HERO BUTTONS ---------- */
+
+.fg-btn-primary {
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.18);
+}
+
+.fg-btn-secondary {
+  background: #FFFFFF;
+  color: #475569;
+  border-color: #CBD5E1;
+}
+
+.fg-btn-secondary:hover {
+  background: #EFF6FF;
+  color: #2563EB;
+  border-color: #93C5FD;
+}
+
+
+/* ---------- HERO ANALYTICS PANEL ---------- */
+
+.fg-hero-panel {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+}
+
+.fg-hero-panel-title {
+  color: #475569;
+}
+
+.fg-hero-metric {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+.fg-hero-stat {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+.fg-hero-stat-val {
+  color: #0F172A;
+}
+
+.fg-score-ring-bg {
+  stroke: #E2E8F0;
+}
+
+.fg-score-ring-text {
+  color: #0F172A;
+}
+
+.fg-score-bar-track {
+  background: #E2E8F0;
+}
+
+
+/* ---------- SECTION TEXT ---------- */
+
+.fg-section-heading {
+  color: #0F172A;
+}
+
+.fg-section-desc {
+  color: #64748B;
+}
+
+.fg-section-eyebrow {
+  color: #2563EB;
+}
+
+
+/* ---------- ALTERNATE SECTIONS ---------- */
+
+.fg-bg-alt {
+  background: #F1F5F9;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+
+/* ---------- PROBLEM CARDS ---------- */
+
+.fg-problem-card {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.fg-problem-card:hover {
+  border-color: #93C5FD;
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+}
+
+.fg-problem-icon {
+  background: #EFF6FF;
+}
+
+.fg-problem-title {
+  color: #0F172A;
+}
+
+.fg-problem-desc {
+  color: #64748B;
+}
+
+
+/* ---------- FEATURE CARDS ---------- */
+
+.fg-feature-card {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.fg-feature-card:hover {
+  background: #FFFFFF;
+  border-color: #93C5FD;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+}
+
+.fg-feature-title {
+  color: #0F172A;
+}
+
+.fg-feature-desc {
+  color: #64748B;
+}
+
+.fg-feature-icon {
+  background: #EFF6FF;
+}
+
+
+/* ---------- HOW IT WORKS ---------- */
+
+.fg-step {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.fg-step:hover {
+  border-color: #93C5FD;
+}
+
+.fg-step-title {
+  color: #0F172A;
+}
+
+.fg-step-desc {
+  color: #64748B;
+}
+
+
+/* ---------- AI ANALYTICS ---------- */
+
+.fg-analytics-heading {
+  color: #0F172A;
+}
+
+.fg-analytics-desc {
+  color: #64748B;
+}
+
+.fg-analytics-point-text strong {
+  color: #0F172A;
+}
+
+.fg-analytics-point-text span {
+  color: #64748B;
+}
+
+.fg-analytics-point-icon {
+  background: #EFF6FF;
+}
+
+
+/* ---------- DASHBOARD MOCKUP ---------- */
+
+.fg-dashboard-mockup {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+}
+
+.fg-dash-header {
+  border-bottom-color: #E2E8F0;
+}
+
+.fg-dash-title {
+  color: #0F172A;
+}
+
+.fg-dash-title span {
+  color: #64748B;
+}
+
+.fg-dash-kpi {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+.fg-dash-kpi-val {
+  color: #0F172A;
+}
+
+.fg-dash-kpi-lbl {
+  color: #64748B;
+}
+
+.fg-chart-area {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+.fg-chart-area-label {
+  color: #64748B;
+}
+
+.fg-chart-x span {
+  color: #94A3B8;
+}
+
+.fg-app-row-name {
+  color: #475569;
+}
+
+.fg-app-row-track {
+  background: #E2E8F0;
+}
+
+.fg-app-row-val {
+  color: #64748B;
+}
+
+
+/* ---------- ABOUT ---------- */
+
+.fg-about-left h2 {
+  color: #0F172A;
+}
+
+.fg-about-left p {
+  color: #64748B;
+}
+
+.fg-about-tag {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+  color: #2563EB;
+}
+
+.fg-about-card {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.fg-about-card:hover {
+  border-color: #93C5FD;
+}
+
+.fg-about-card-title {
+  color: #0F172A;
+}
+
+.fg-about-card-desc {
+  color: #64748B;
+}
+
+
+/* ---------- CTA ---------- */
+
+.fg-cta-card {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.fg-cta-heading {
+  color: #0F172A;
+}
+
+.fg-cta-sub {
+  color: #64748B;
+}
+
+.fg-cta-secondary {
+  color: #64748B;
+}
+
+.fg-cta-secondary:hover {
+  color: #2563EB;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.fg-footer {
+  background: #FFFFFF;
+  border-top-color: #E2E8F0;
+}
+
+.fg-footer-brand p {
+  color: #64748B;
+}
+
+.fg-footer-col-title {
+  color: #475569;
+}
+
+.fg-footer-links button {
+  color: #64748B;
+}
+
+.fg-footer-links button:hover {
+  color: #2563EB;
+}
+
+.fg-footer-bottom {
+  border-top-color: #E2E8F0;
+}
+
+.fg-footer-copy,
+.fg-footer-made {
+  color: #94A3B8;
+}
+
+
+/* ---------- BACKGROUND GLOW ---------- */
+
+.fg-hero::before {
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.fg-hero::after {
+  background: radial-gradient(
+    circle,
+    rgba(6, 182, 212, 0.07) 0%,
+    transparent 70%
+  );
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .fg-hero {
+    background: #F8FAFC;
   }
 }
