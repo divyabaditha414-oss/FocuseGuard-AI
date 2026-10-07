@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
+import Home from "./pages/Home";
 import Login from "./pages/login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -34,8 +35,15 @@ function App() {
 
       <Routes>
 
+        {/* Home / Landing page */}
         <Route
           path="/"
+          element={<Home />}
+        />
+
+        {/* Authentication */}
+        <Route
+          path="/login"
           element={<Login />}
         />
 
@@ -44,6 +52,7 @@ function App() {
           element={<Register />}
         />
 
+        {/* App pages */}
         <Route
           path="/dashboard"
           element={<Dashboard />}
@@ -87,10 +96,11 @@ function App() {
           path="/settings"
           element={<Settings />}
         />
+
         <Route
-  path="/explore-my-data"
-  element={<ExploreMyData />}
-/>
+          path="/explore-my-data"
+          element={<ExploreMyData />}
+        />
 
       </Routes>
 
