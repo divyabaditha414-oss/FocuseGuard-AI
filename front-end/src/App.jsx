@@ -18,30 +18,27 @@ import Settings from "./pages/Settings";
 import ExploreMyData from "./pages/ExploreMyData";
 
 import NotificationToast from "./components/NotificationToast";
+import MobileNavigation from "./components/MobileNavigation";
+
 
 function App() {
-
   return (
-
     <BrowserRouter>
 
-      {/* =====================================
-          GLOBAL NOTIFICATION MESSAGE
-          Appears on ANY PAGE
-      ===================================== */}
-
+      {/* Global notification */}
       <NotificationToast />
-
 
       <Routes>
 
-        {/* Home / Landing page */}
+        {/* =========================
+            PUBLIC PAGES
+        ========================= */}
+
         <Route
           path="/"
           element={<Home />}
         />
 
-        {/* Authentication */}
         <Route
           path="/login"
           element={<Login />}
@@ -52,62 +49,107 @@ function App() {
           element={<Register />}
         />
 
-        {/* App pages */}
+
+        {/* =========================
+            APP PAGES
+            MobileNavigation appears
+            only on logged-in pages
+        ========================= */}
+
         <Route
           path="/dashboard"
-          element={<Dashboard />}
+          element={
+            <>
+              <MobileNavigation />
+              <Dashboard />
+            </>
+          }
         />
 
         <Route
           path="/focus-sessions"
-          element={<FocusSessions />}
+          element={
+            <>
+              <MobileNavigation />
+              <FocusSessions />
+            </>
+          }
         />
 
         <Route
           path="/activity-monitor"
-          element={<ActivityMonitor />}
+          element={
+            <>
+              <MobileNavigation />
+              <ActivityMonitor />
+            </>
+          }
         />
 
         <Route
           path="/distraction-analysis"
           element={
-            <DistractionAnalysis />
+            <>
+              <MobileNavigation />
+              <DistractionAnalysis />
+            </>
           }
         />
 
         <Route
           path="/analytics"
-          element={<Analytics />}
+          element={
+            <>
+              <MobileNavigation />
+              <Analytics />
+            </>
+          }
         />
 
         <Route
           path="/ai-recommendations"
           element={
-            <AIRecommendations />
+            <>
+              <MobileNavigation />
+              <AIRecommendations />
+            </>
           }
         />
 
         <Route
           path="/profile"
-          element={<Profile />}
+          element={
+            <>
+              <MobileNavigation />
+              <Profile />
+            </>
+          }
         />
 
         <Route
           path="/settings"
-          element={<Settings />}
+          element={
+            <>
+              <MobileNavigation />
+              <Settings />
+            </>
+          }
         />
 
         <Route
           path="/explore-my-data"
-          element={<ExploreMyData />}
+          element={
+            <>
+              <MobileNavigation />
+              <ExploreMyData />
+            </>
+          }
         />
 
       </Routes>
 
     </BrowserRouter>
-
   );
-
 }
 
 export default App;

@@ -39,3 +39,755 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* =========================================================
+   GLOBAL RESPONSIVE OVERRIDES
+   Applied to ALL pages via index.css
+   Breakpoints: 768px (tablet/mobile boundary)
+                480px (small mobile)
+========================================================= */
+
+/* ── Prevent everything from overflowing ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* =========================================================
+   MOBILE SIDEBAR PATTERN
+   All sidebar-based pages share the same layout fix:
+   hide fixed sidebar, show full-width main content,
+   and a top mobile-bar with hamburger is handled per-page.
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ── DASHBOARD ── */
+  .fg-dashboard { display: block; }
+
+  .fg-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    width: 260px !important;
+    z-index: 1100;
+    overflow-y: auto;
+  }
+  .fg-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .fg-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px 16px 48px !important;
+    padding-top: 68px !important;
+  }
+
+  /* ── FOCUS SESSIONS ── */
+  .focus-page { display: block; }
+  .focus-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    width: 260px !important;
+    z-index: 1100;
+  }
+  .focus-sidebar.mobile-open { transform: translateX(0); }
+  .focus-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px 16px 48px !important;
+    padding-top: 68px !important;
+  }
+
+  /* ── ACTIVITY MONITOR ── */
+  .activity-page { display: block; }
+  .activity-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    width: 260px !important;
+    z-index: 1100;
+  }
+  .activity-sidebar.mobile-open { transform: translateX(0); }
+  .activity-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px 16px 48px !important;
+    padding-top: 68px !important;
+  }
+
+  /* ── DISTRACTION ANALYSIS ── */
+  .distraction-page { display: block; }
+  .distraction-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    width: 260px !important;
+    z-index: 1100;
+  }
+  .distraction-sidebar.mobile-open { transform: translateX(0); }
+  .distraction-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px 16px 48px !important;
+    padding-top: 68px !important;
+  }
+
+  /* ── ANALYTICS ── */
+  .analytics-layout { display: block; }
+  .analytics-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    width: 260px !important;
+    z-index: 1100;
+  }
+  .analytics-sidebar.mobile-open { transform: translateX(0); }
+  .analytics-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px 16px 48px !important;
+    padding-top: 68px !important;
+    box-sizing: border-box;
+  }
+
+  /* ── AI RECOMMENDATIONS ── */
+  .dashboard { display: block; }
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    width: 260px !important;
+    z-index: 1100;
+  }
+  .sidebar.mobile-open { transform: translateX(0); }
+  .main {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .recommendation-page {
+    padding: 16px 16px 48px !important;
+    padding-top: 68px !important;
+  }
+
+  /* ── SETTINGS ── */
+  .settings-page { display: block; }
+  .settings-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    width: 260px !important;
+    z-index: 1100;
+  }
+  .settings-sidebar.mobile-open { transform: translateX(0); }
+  .settings-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px 16px 48px !important;
+    padding-top: 68px !important;
+    box-sizing: border-box;
+  }
+
+  /* ── Overlay backdrop for all sidebars ── */
+  .mobile-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 16, 31, 0.55);
+    z-index: 1090;
+    backdrop-filter: blur(2px);
+  }
+
+  /* ── Mobile top bar (shared across sidebar pages) ── */
+  .mobile-topbar {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    z-index: 1080;
+    background: #0f1b2d;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+
+  .mobile-topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #38bdf8;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .mobile-topbar-brand-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: #1e3a5f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .mobile-hamburger {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .mobile-hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #cbd5e1;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  .mobile-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .mobile-hamburger.open span:nth-child(2) { opacity: 0; }
+  .mobile-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── DASHBOARD KPIs ── */
+  .fg-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  /* ── Charts ── */
+  .fg-chart-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Period selector ── */
+  .fg-period-section {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .fg-period-selector {
+    width: 100% !important;
+    overflow-x: auto;
+  }
+  .fg-period {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  /* ── Dashboard header ── */
+  .fg-header {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .fg-header-right {
+    width: 100% !important;
+    flex-wrap: wrap;
+    gap: 10px !important;
+  }
+  .fg-welcome h1 { font-size: clamp(20px, 5vw, 28px) !important; }
+
+  /* ── App chart rows ── */
+  .fg-app-row {
+    grid-template-columns: 24px minmax(0,1fr) 56px !important;
+  }
+  .fg-app-bar-container { grid-column: 1 / -1 !important; }
+
+  /* ── Distraction rows ── */
+  .fg-distraction-row {
+    grid-template-columns: 28px minmax(0,1fr) !important;
+  }
+  .fg-distraction-progress { grid-column: 2 !important; }
+
+  /* ── Insights ── */
+  .fg-insight-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Notification panel ── */
+  .fg-notification-panel,
+  .notification-panel {
+    position: fixed !important;
+    top: 65px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  /* ── Focus Sessions timer ── */
+  .focus-timer-panel {
+    grid-template-columns: 1fr !important;
+  }
+  .timer-info {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .timer-circle {
+    width: 180px !important;
+    height: 180px !important;
+  }
+  .timer-circle strong { font-size: 32px !important; }
+
+  /* ── Session stats ── */
+  .session-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* ── Focus Sessions duration selector ── */
+  .duration-options div {
+    justify-content: center;
+  }
+  .start-session-btn, .end-session-btn {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+
+  /* ── Activity Monitor stats ── */
+  .activity-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  /* ── Activity summary grid ── */
+  .summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Activity table: allow horizontal scroll for the table only ── */
+  .table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── Analytics metrics ── */
+  .analytics-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  /* ── Analytics chart grid ── */
+  .analytics-chart-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Analytics chart box height ── */
+  .chart-box {
+    height: 220px !important;
+  }
+
+  /* ── Behaviour grid ── */
+  .behaviour-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Analytics headers ── */
+  .analytics-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .analytics-header h1 {
+    font-size: clamp(24px, 6vw, 36px) !important;
+  }
+  .analysis-period {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+  }
+  .period-buttons {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  /* ── Distraction Analysis ── */
+  .distraction-stats {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .overview-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .distraction-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+  .distraction-header h1 {
+    font-size: clamp(22px, 5.5vw, 32px) !important;
+  }
+  .period-panel {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+  }
+  .period-controls {
+    overflow-x: auto;
+    width: 100%;
+  }
+  .switch-analysis-panel { padding: 16px !important; }
+  .switch-summary { flex-direction: column !important; gap: 12px !important; }
+
+  /* ── AI Recommendations ── */
+  .recommendation-header {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .recommendation-header h1 {
+    font-size: clamp(24px, 6vw, 36px) !important;
+  }
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .period-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    min-height: unset !important;
+  }
+  .period-tabs {
+    overflow-x: auto;
+    width: 100%;
+  }
+  .leak-flow {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+  .session-card {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .effectiveness-grid,
+  .prediction-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Settings ── */
+  .settings-header {
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  .settings-header h1 {
+    font-size: clamp(26px, 6vw, 38px) !important;
+  }
+  .settings-header-right {
+    width: 100% !important;
+    flex-wrap: wrap;
+    gap: 10px !important;
+  }
+  .notification-setting-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+  .notification-setting-controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .blocked-site-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  /* ── Profile ── */
+  .profile-page {
+    padding: 20px 16px 48px !important;
+  }
+  .profile-header {
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  .profile-header h1 {
+    font-size: clamp(26px, 6vw, 36px) !important;
+  }
+  .profile-hero {
+    flex-direction: column !important;
+    gap: 16px !important;
+    padding: 20px !important;
+  }
+  .hero-name-row h2 {
+    font-size: clamp(20px, 5vw, 26px) !important;
+  }
+  .profile-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Login / Register ── */
+  .login-container,
+  .register-container {
+    padding: 16px !important;
+    align-items: flex-start !important;
+    padding-top: 32px !important;
+  }
+  .login-card,
+  .register-card {
+    width: 100% !important;
+    max-width: 420px;
+    margin: 0 auto !important;
+    padding: 24px 20px !important;
+  }
+
+  /* ── Explore My Data ── */
+  .explore-header {
+    flex-direction: column !important;
+    padding: 20px 16px 16px !important;
+    gap: 16px !important;
+  }
+  .explore-header h1 {
+    font-size: clamp(24px, 6vw, 36px) !important;
+  }
+  .explore-container {
+    padding: 0 16px 32px !important;
+  }
+  .explore-summary {
+    grid-template-columns: 1fr !important;
+  }
+  .category-tabs {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .filter-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* ── Generic headings across all pages ── */
+  .activity-header h1,
+  .focus-header h1 {
+    font-size: clamp(22px, 5.5vw, 30px) !important;
+  }
+  .activity-header,
+  .focus-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  /* ── Period card / panel (Activity Monitor) ── */
+  .period-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE (≤ 480px)
+========================================================= */
+
+@media (max-width: 480px) {
+  /* KPIs go full single column */
+  .fg-kpi-grid,
+  .analytics-metrics {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats cards go single column */
+  .activity-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* AI Recommendations profile grid */
+  .profile-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Session stats */
+  .session-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Explore category tabs */
+  .category-tabs {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Timer circle */
+  .timer-circle {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .timer-circle strong { font-size: 28px !important; }
+
+  /* Login/Register card */
+  .login-card, .register-card {
+    border-radius: 14px !important;
+  }
+}
+
+/* =========================================================
+   TABLET (481px – 768px) — already handled by 768px block
+   Small Desktop (769–1024px) — partial sidebar narrowing
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fg-sidebar { width: 220px !important; }
+  .fg-main {
+    margin-left: 220px !important;
+    width: calc(100% - 220px) !important;
+    padding: 24px 24px 40px !important;
+  }
+
+  .focus-sidebar { width: 220px !important; }
+  .focus-main {
+    margin-left: 220px !important;
+    width: calc(100% - 220px) !important;
+    padding: 24px 24px 40px !important;
+  }
+
+  .activity-sidebar { width: 220px !important; }
+  .activity-main {
+    margin-left: 220px !important;
+    width: calc(100% - 220px) !important;
+    padding: 24px 24px 40px !important;
+  }
+
+  .distraction-sidebar { width: 220px !important; }
+  .distraction-main {
+    margin-left: 220px !important;
+    width: calc(100% - 220px) !important;
+    padding: 24px 24px 40px !important;
+  }
+
+  .analytics-sidebar { width: 220px !important; }
+  .analytics-main {
+    margin-left: 220px !important;
+    padding: 24px 24px 40px !important;
+    box-sizing: border-box;
+  }
+
+  .sidebar { width: 240px !important; }
+  .main { margin-left: 240px !important; width: calc(100% - 240px) !important; }
+
+  .settings-sidebar { width: 230px !important; }
+  .settings-main {
+    margin-left: 230px !important;
+    width: calc(100% - 230px) !important;
+    padding: 28px 28px 40px !important;
+  }
+
+  /* Grids narrow at 1024 */
+  .fg-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .analytics-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .fg-chart-grid { grid-template-columns: 1fr !important; }
+  .analytics-chart-grid { grid-template-columns: 1fr !important; }
+  .activity-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .distraction-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .focus-timer-panel { grid-template-columns: 1fr !important; }
+  .timer-info { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; }
+  .profile-grid { grid-template-columns: 1fr !important; }
+  .settings-header h1 { font-size: 36px !important; }
+  .analytics-header h1 { font-size: 34px !important; }
+  .recommendation-header h1 { font-size: 34px !important; }
+}
+/* =====================================================
+   MOBILE NAVIGATION
+   Desktop sidebar is replaced by MobileNavigation
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  /* Hide existing desktop sidebar */
+  .sidebar {
+    display: none !important;
+  }
+
+  /* Prevent desktop layout from leaving empty space */
+  .main-content,
+  .content,
+  .page-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Make pages use the full mobile width */
+  body {
+    overflow-x: hidden;
+  }
+
+}
+/* =====================================================
+   FOCUSGUARD MOBILE APP LAYOUT FIX
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Hide ALL old desktop sidebars */
+  .sidebar,
+  .fg-sidebar,
+  .focus-sidebar,
+  .activity-sidebar,
+  .distraction-sidebar,
+  .analytics-sidebar,
+  .settings-sidebar {
+    display: none !important;
+  }
+
+  /* Remove old desktop sidebar offsets */
+  .fg-main,
+  .dashboard .main,
+  .activity-main,
+  .distraction-main,
+  .analytics-main,
+  .settings-main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Remove old desktop top spacing */
+  .fg-main {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Main page containers */
+  .fg-dashboard,
+  .dashboard,
+  .activity-page,
+  .distraction-page,
+  .analytics-page,
+  .settings-page {
+    width: 100% !important;
+    min-height: 100vh;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+}
+@media (max-width: 768px) {
+
+  .fg-main,
+  .dashboard .main,
+  .activity-main,
+  .distraction-main,
+  .analytics-main,
+  .settings-main {
+    padding: 20px 16px 100px !important;
+  }
+
+}

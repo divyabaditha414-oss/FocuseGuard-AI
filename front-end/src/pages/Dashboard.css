@@ -2254,3 +2254,36 @@
   }
 
 }
+/* =====================================================
+   MOBILE DASHBOARD HEADER
+   Hide desktop date / notification / profile controls
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  .fg-header-right {
+    display: none !important;
+  }
+
+}
+/* =====================================================
+   MOBILE - USE ONLY MOBILE NAVIGATION HEADER
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  /* Hide old Dashboard date / notification / profile */
+  .fg-header-right {
+    display: none !important;
+  }
+
+  /* Also hide old header controls if older Dashboard
+     versions use these class names */
+  .fg-date,
+  .fg-notification-wrapper,
+  .fg-header-user,
+  .fg-user {
+    display: none !important;
+  }
+
+}
